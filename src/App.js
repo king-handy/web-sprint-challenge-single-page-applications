@@ -6,10 +6,10 @@ const App = () => {
     <Router>
       <h1>Lambda Eats</h1>
       <nav>
-        <li>
+        <li id='order-pizza'>
           <Link to='/'>Home</Link>
         </li>
-        <li>
+        <li id='pizza-form'>
           <Link to='/pizza'>Pizza</Link>
         </li>
       </nav>
