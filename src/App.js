@@ -17,7 +17,7 @@ const App = () => {
           <Link to='/pizza'>Pizza Form</Link>
         </li>
         <li id='order-complete'>
-          <Link to='/'></Link>
+          <Link to='/order'>Order</Link>
         </li>
       </nav>
       <div className='App'>

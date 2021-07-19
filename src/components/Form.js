@@ -1,5 +1,13 @@
-import { values } from 'lodash'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+// import * as Yup from 'yup'
+
+// const schema = Yup.object().shape({
+//     name: Yup.string().required('Name is required'.min(3, 'Minimum 3 letters in name')),
+//     // size: yup.string().oneOf('S', 'M', 'L', ''),
+//     // topping1: ,
+//     // topping2: ,
+//     special: Yup.string().required('Instructions required'),
+// })
 
 export default function Form(props) {
     const { values, update, submit } = props
@@ -21,6 +29,10 @@ export default function Form(props) {
         evt.preventDefault()
         submit()
     };
+
+    // useEffect(() => {
+    //     schema.isValid(order).then(valid => setDisabled(!valid))
+    // }, [form])
 
     return (
         <form onSubmit={onSubmit}>
@@ -61,7 +73,7 @@ export default function Form(props) {
                     </label>
                 </p>
                 <br></br>
-                
+
                 <div className='add'>
                     <button>Add to Order</button>
                 </div>
