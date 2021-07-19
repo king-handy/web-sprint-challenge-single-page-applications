@@ -1,5 +1,7 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import Home from './components/Home'
+import Pizza from './components/Pizza'
 
 const App = () => {
   return (
@@ -14,10 +16,10 @@ const App = () => {
         </li>
       </nav>
       <div className='App'>
-        {/* <Switch>
+        <Switch>
           <Route exact path='/' component={Home} />
           <Route path ='/pizza' component={Pizza} />
-        </Switch> */}
+        </Switch>
       </div>
     </Router>
   );
