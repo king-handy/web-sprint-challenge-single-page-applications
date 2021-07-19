@@ -2,9 +2,10 @@ import React from 'react'
 
 function Home() {
     return (
-        <>
-            <h2>Build Your Own Pizza</h2>
-        </>
+        <div>
+            <h1>Your favorite food, delivered while coding</h1>
+            <button>Pizza?</button>
+        </div>
     )
 }
 
