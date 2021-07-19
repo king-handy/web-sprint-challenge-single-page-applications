@@ -10,7 +10,7 @@ const App = () => {
     <Router>
       <h1>Lambda Eats</h1>
       <nav>
-        <li id='order-pizza'>
+        <li>
           <Link to='/'>Home</Link>
         </li>
         <li id='pizza-form'>
