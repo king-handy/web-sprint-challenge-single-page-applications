@@ -1,29 +1,38 @@
 import { values } from 'lodash'
-import React from 'react'
-import data from './Data'
+import React, { useState } from 'react'
 
 export default function Form(props) {
     const { values, update, submit } = props
+    const [order, setOrder] = useState({ 
+        name: '',
+        size: '',
+        topping1: false,
+        topping2: false,
+        special: '',
+    });
 
     const onChange = evt => {
-        const name = evt.target.name
-        const value = evt.target.value
-        update(name, value)
-    }
+        const { name, type, value, checked } = evt.target
+        const valueType = type === 'checkbox' ? checked : value
+        setOrder({...order, [name]: valueType })
+    };
 
     const onSubmit = evt => {
         evt.preventDefault()
         submit()
-    }
+    };
 
     return (
         <form onSubmit={onSubmit}>
             <div className='pizza-form'>
-                <label>Name
-                    <input type='text' onChange={onChange} name='customer' value={values.customer}></input>
+                <p>Name:<br></br>
+                <label>
+                    <input type='text' onChange={onChange} name='customer' value={order.customer}></input>
                 </label>
-                <label>Pizza Size
-                    <select onChange={onChange} name='size' value={values.size}>
+                </p>
+                <p>Pizza Size:<br></br>
+                <label>
+                    <select onChange={onChange} name='size' value={order.size}>
                         <option value=''>- Select a Size -</option>
                         <option value='S'>S</option>
                         <option value='M'>M</option>
@@ -31,10 +40,28 @@ export default function Form(props) {
                         <option value='XL'>XL</option>
                     </select>
                 </label>
-                <label>Special Instructions
-                    <input id='special-text' type='text' onChange={onChange} name='special' value={values.special}></input>
-                </label>
-
+                </p>
+                <p>Toppings:<br></br>
+                    <label>Pineapple
+                        <input type='radio' onChange={onChange} name='toppings' checked={order.toppings}></input>
+                    </label>
+                    <label>Pepperoni
+                        <input type='radio' onChange={onChange} name='toppings' checked={order.toppings}></input>
+                    </label>
+                    <label>Extra Cheese
+                        <input type='radio' onChange={onChange} name='toppings' checked={order.toppings}></input>
+                    </label>
+                    <label>Tomato
+                        <input type='radio' onChange={onChange} name='toppings' checked={order.toppings}></input>
+                    </label>
+                </p>
+                <p>Special Instructions:<br></br>
+                    <label id='special-text'>
+                        <input type='text' onChange={onChange} name='special' value={order.special}></input>
+                    </label>
+                </p>
+                <br></br>
+                
                 <div className='add'>
                     <button>Add to Order</button>
                 </div>
